@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>斗牛游戏 · 日常查询与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* header / 文章标题区 */
+        .article-header {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e7e5e4;
+            padding-bottom: 1.8rem;
+        }
+
+        .article-header h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #0c0c0c;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-header .subhead {
+            font-size: 1rem;
+            color: #6b6b6b;
+            font-weight: 400;
+            margin-top: 0.2rem;
+            border-left: 3px solid #ccc;
+            padding-left: 1rem;
+        }
+
+        /* 导语 – 像文章开头的引子 */
+        .intro {
+            font-size: 1.05rem;
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+            color: #2b2b2b;
+            border: 1px solid #efedea;
+        }
+
+        .intro p {
+            margin-bottom: 0.8rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 正文段落 */
+        .content-section {
+            margin-bottom: 2.2rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #1f1f1f;
+            border-bottom: 1px dashed #d6d3d1;
+            padding-bottom: 0.3rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.2rem;
+            text-align: left;
+            color: #2e2e2e;
+        }
+
+        /* 引用 / 提示卡片 */
+        .tip-block {
+            background: #f5f3f1;
+            padding: 1.6rem 1.8rem;
+            border-left: 4px solid #9b8f85;
+            margin: 2rem 0 2.2rem 0;
+            font-style: normal;
+            color: #3d3d3d;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .tip-block .label {
+            font-weight: 550;
+            letter-spacing: 0.3px;
+            color: #4d4038;
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        .tip-block p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* 一个简单的不完全 FAQ 摘要 */
+        .faq-mini {
+            margin: 2.5rem 0 2rem 0;
+            border-top: 1px solid #e7e2de;
+            padding-top: 1.5rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #efeae7;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 470;
+            cursor: pointer;
+            color: #2c2c2c;
+            padding: 0.3rem 0;
+            transition: color 0.1s;
+        }
+
+        .faq-mini summary:hover {
+            color: #5b4f47;
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 0.5rem;
+            color: #474747;
+            font-size: 0.95rem;
+        }
+
+        /* 访问句 / 链接嵌入 */
+        .visit-sentence {
+            background: #ffffff;
+            padding: 1.6rem 2rem;
+            border: 1px solid #e3dfdb;
+            margin-top: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            text-align: left;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .visit-sentence a {
+            color: #1f2a36;
+            text-decoration: none;
+            border-bottom: 1px solid #aca39b;
+            font-weight: 460;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .visit-sentence a:hover {
+            border-bottom-color: #1f2a36;
+            color: #0b0b0b;
+        }
+
+        /* 极小装饰 */
+        .footnote {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #8a857f;
+            border-top: 1px solid #e3dfdb;
+            padding-top: 1.2rem;
+            text-align: left;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+            .intro {
+                padding: 1.2rem 1.2rem;
+            }
+            .visit-sentence {
+                padding: 1.2rem 1.2rem;
+                font-size: 1rem;
+            }
+            .tip-block {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        /* 极简留白保证呼吸感 */
+        .spacer {
+            height: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 文章标题 + 导语头 -->
+    <header class="article-header">
+        <h1>斗牛游戏：日常查询与延伸阅读</h1>
+        <div class="subhead">从一次查询开始，慢慢展开一张对照笔记</div>
+    </header>
+
+    <!-- 导语 -->
+    <div class="intro">
+        <p>有时只是在列表里看到一两条相关记录，随手点开，发现岔出去的小路比主路更耐走。关于斗牛游戏，手边积累的笔记不多，但每次对照下来，总能沉淀一点东西。下面几段是零散整理的内容，当作一张供日常翻查的索引。</p>
+        <p>没有宏大的说明，也不追求面面俱到——只是从查询、对照、延伸阅读的视角，把一些值得留意的侧面记下来。</p>
+    </div>
+
+    <!-- 多段正文 -->
+    <div class="content-section">
+        <h2>一、基本印象与查询起点</h2>
+        <p>如果只看名字，「斗牛游戏」容易让人想起牌桌上的常见变体。实际上它并不局限于某一类固定规则，不同地区、不同平台呈现的版本可能存在显著差异。查询时最直接的感受是：规则描述往往简短，但细节处的加减分、特殊牌型定义很容易被忽略。因此第一次接触时，建议先找两到三份不同来源的说明做对照，而不是只看一份就下判断。</p>
+        <p>从日常查询的角度说，把「牌型组合」「赔率设定」「庄闲角色」这三个关键词作为搜索锚点，通常能过滤掉大量泛泛的内容，快速定位到有效信息。</p>
+    </div>
+
+    <div class="content-section">
+        <h2>二、对照中的常见差异</h2>
+        <p>在不同介绍页或规则说明里，同一名称的斗牛游戏可能出现以下差异：</p>
+        <p>—— 是否使用鬼牌或特殊牌；<br>
+        —— 牛数的计算方式（例如五张牌中三张组成十的倍数后，剩余两张点数之和取个位）；<br>
+        —— 对「五花牛」「五小牛」等特殊牌型的定义和优先级；<br>
+        —— 下注结构以及庄家翻倍的临界值。</p>
+        <p>这些差异往往隐藏在几行备注里，但实际对局时影响不小。随手记录一次对照，下次再遇到不同表述就能更快定位。</p>
+    </div>
+
+    <div class="content-section">
+        <h2>三、延伸阅读场景：从规则到策略思路</h2>
+        <p>规则本身只是骨架，真正让人停留的往往是牌局里的概率感和选择节奏。有人在论坛里整理过不同牌型出现的粗略概率，也有人讨论「当底牌组合明显偏弱时是否应该放弃加注」——但这些讨论大多散落在各个帖子里，缺乏统一的整理。</p>
+        <p>延伸阅读并不等于寻找必胜方法，而是理解一种博弈风格背后的逻辑。对于偶尔接触的人来说，看三五篇不同玩家的笔记，比看一篇高深的理论文章更有参考价值。</p>
+    </div>
+
+    <!-- 引用提示 / 类似摘录卡片 -->
+    <div class="tip-block">
+        <span class="label">📌 日常查询提示</span>
+        <p>当你在不同页面看到同一个斗牛规则时，试着把最关键的三条数字（牌型倍数、特殊牌条件、封顶上限）单独摘出来。放在一起对比，经常能发现看似相同的文字其实指向不同的算法。这也是为什么许多人会在书签里收藏好几个规则页做交叉验证。</p>
+    </div>
+
+    <!-- 迷你 FAQ 摘要 （仅两个简短问答）-->
+    <div class="faq-mini">
+        <details>
+            <summary>「斗牛游戏」和普通扑克比，最突出的特点是什么？</summary>
+            <p>牌点数与组合速度。一局只需要五张牌，计算牛数的步骤直接决定输赢倍率，节奏比很多传统玩法快。同时因为存在特殊牌型，偶尔会打出倍数较高的牌局。</p>
+        </details>
+        <details>
+            <summary>刚开始接触，应该先注意规则里的哪个细节？</summary>
+            <p>建议先确认「无牛」情况下的处理方式：有些规则里无牛直接输掉底注，有些则允许比点数。另外需留意是否区分花色，绝大多数斗牛只看点数不看花色，但个别变体可能以花色作为额外条件。</p>
+        </details>
+    </div>
+
+    <!-- 访问句 —— 将链接自然嵌入句子中 -->
+    <div class="visit-sentence">
+        <p>如果你也对牌型组合和规则差异感兴趣，可以进一步查阅 <a href="https://zh-bullfighting.com">斗牛游戏</a> 中的详细说明与对照整理。里面把常见的牌型定义和适用场景做了归类，适合日常随手翻看。</p>
+    </div>
+
+    <!-- 极简脚注，呼应“访问句”风格但不重复 -->
+    <div class="footnote">
+        记录于日常查询笔记 · 内容保持开放，随时补充对照
+    </div>
+</div>
+</body>
+</html>
