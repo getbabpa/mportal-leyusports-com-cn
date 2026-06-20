@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息索引 · ued体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1b2b38;
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 头部 / 标识 */
+        .hero {
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0a3d4c;
+            border-left: 5px solid #279b9b;
+            padding-left: 1.25rem;
+        }
+        .hero .tagline {
+            margin-top: 0.6rem;
+            font-size: 1rem;
+            color: #3f6772;
+            max-width: 600px;
+            border-bottom: 1px dashed #b8d2d9;
+            padding-bottom: 0.75rem;
+        }
+
+        /* 目录感网格 —— 卡片 + 说明区 + 提示区 */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
+        }
+
+        @media (min-width: 680px) {
+            .grid-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-layout .full-width {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(5, 65, 75, 0.06);
+            transition: box-shadow 0.2s ease;
+            border: 1px solid #e1edf0;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(5, 85, 95, 0.08);
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            color: #095e6b;
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card h2::before {
+            content: "▹";
+            color: #2ba8a8;
+            font-size: 1.1rem;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #254a55;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        .card ul li::before {
+            content: "·";
+            color: #3bb2b2;
+            font-weight: bold;
+            position: absolute;
+            left: 0.2rem;
+        }
+
+        /* 提示区卡片（特殊视觉） */
+        .card-tip {
+            background: #e5f3f5;
+            border-left: 5px solid #2b9e9e;
+        }
+        .card-tip h2::before {
+            content: "⧫";
+            color: #1b7a7a;
+        }
+
+        /* 相关信息区（FAQ 摘要风格） */
+        .faq-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #d9e7ec;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #12515e;
+            margin-bottom: 0.1rem;
+        }
+        .faq-a {
+            color: #2d5a66;
+            font-size: 0.9rem;
+        }
+
+        /* 链接外观 */
+        a {
+            color: #1d7f8f;
+            text-decoration: underline;
+            text-decoration-color: #a0cfd4;
+            text-underline-offset: 3px;
+            font-weight: 450;
+            transition: color 0.15s, text-decoration-color 0.15s;
+        }
+        a:hover {
+            color: #0b5b68;
+            text-decoration-color: #0b5b68;
+        }
+
+        /* 按钮（辅助功能，非主体） */
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            border: 1.5px solid #2ba8a8;
+            color: #1b6f7a;
+            padding: 0.45rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            margin-top: 0.5rem;
+        }
+        .btn-outline:hover {
+            background: #2ba8a8;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-note {
+            margin-top: 4rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #cbdde3;
+            font-size: 0.85rem;
+            color: #4e747e;
+            text-align: center;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 480px) {
+            body { padding: 1.25rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 1.5rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 头部：说明 + 稳定入口感 -->
+    <div class="hero">
+        <h1>目录 · 信息索引</h1>
+        <div class="tagline">
+            一个围绕 <a href="https://portals-uedsports.com">ued体育</a> 整理的轻量知识库入口，
+            用于快速了解背景、定位与常见疑问。<br>
+            页面本身只做引导，不替代源站。
+        </div>
+    </div>
+
+    <!-- 网格布局：目录感 + 说明 + 提示 + 相关信息 -->
+    <div class="grid-layout">
+
+        <!-- 卡片①：说明区 —— 稳定入口的由来 -->
+        <div class="card">
+            <h2>定位与入口</h2>
+            <p>
+                很多人第一次接触到这个名字，是因为它出现在一些体育相关服务的介绍里。
+                <a href="https://portals-uedsports.com">ued体育</a> 本身是一个独立站点，
+                从页面结构看，它更偏向于提供整合式的信息面板，而不是单一的博客或论坛。
+            </p>
+            <p style="margin-top: 0.8rem;">
+                这个索引页的存在，是为了在需要的时候能快速定位到那个站点，同时把一些零散的特征汇集起来。
+                如果你已经熟悉它，可以直接前往；如果还不熟悉，下面几块内容也许能帮你建立基本印象。
+            </p>
+        </div>
+
+        <!-- 卡片②：特点 / 场景（目录式列举） -->
+        <div class="card">
+            <h2>常见场景</h2>
+            <ul>
+                <li>通过站内导航浏览不同模块的资讯条目</li>
+                <li>查阅与体育相关的数据或记录页面</li>
+                <li>作为访问入口之一，用于对比其他来源</li>
+                <li>偶尔用于验证某些公开信息的时效性</li>
+            </ul>
+            <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #38656e;">
+                这些场景并不覆盖所有用途，但基本能反映它被提及时的上下文。
+                具体能做什么、不能做什么，应以源站实际内容为准。
+            </p>
+        </div>
+
+        <!-- 卡片③：提示区（带特殊样式） -->
+        <div class="card card-tip">
+            <h2>使用提示</h2>
+            <p>
+                无论通过哪种方式打开，建议先留意页面当前的加载状态与地址栏协议。
+                部分网络环境下，首次访问可能需要几秒钟的等待。
+            </p>
+            <p style="margin-top: 0.6rem;">
+                另外，如果你是通过第三方文章或推荐链接跳转的，不妨直接输入或核对
+                <a href="https://portals-uedsports.com">ued体育</a> 的地址，
+                避免中间页带来的混淆。
+            </p>
+        </div>
+
+        <!-- 卡片④：相关信息区（FAQ 摘要） -->
+        <div class="card full-width">
+            <h2>相关信息 · 简短问答</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">这个站点主要提供什么类型的内容？</div>
+                <div class="faq-a">从页面标题和结构来看，偏向体育信息聚合与展示，
+                具体栏目需要进入后自行查看。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">是否需要注册或登录才能浏览大部分内容？</div>
+                <div class="faq-a">没有明确说明，但多数类似站点对公开页面不设限制。
+                建议以实际访问时的提示为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">和其他体育类网站相比，它的侧重点是什么？</div>
+                <div class="faq-a">从命名和入口风格推断，它可能更强调“入口”和“面板”的整合，
+                而非单一赛事新闻。不过最好还是亲自浏览确认。</div>
+            </div>
+            <div style="margin-top: 0.8rem;">
+                <a href="https://portals-uedsports.com" class="btn-outline">ued体育</a>
+                <span style="display: inline-block; margin-left: 0.75rem; color: #547e86; font-size: 0.85rem;">（新标签页打开）</span>
+            </div>
+        </div>
+
+        <!-- 可选：一个额外的说明小卡，让布局更有节奏 -->
+        <div class="card">
+            <h2>关于本索引页</h2>
+            <p>
+                这份页面只是静态的指引集合，不存储任何动态数据，也不代表被索引站点的官方立场。
+                内容基于公开可观察到的信息整理，如有变化请以实际站点为准。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>相邻参考</h2>
+            <p>
+                如果想把 <a href="https://portals-uedsports.com">ued体育</a> 和其他类似页面做对比，
+                建议同时打开两三个窗口，横向比较导航方式和信息密度。
+                这种方法往往比只看截图更直观。
+            </p>
+        </div>
+
+    </div>
+
+    <!-- 简单的页脚 -->
+    <div class="footer-note">
+        <span>静态索引 · 仅供示意</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span>内容截止更新：近期</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span><a href="https://portals-uedsports.com">ued体育</a></span>
+    </div>
+
+</div>
+</body>
+</html>
