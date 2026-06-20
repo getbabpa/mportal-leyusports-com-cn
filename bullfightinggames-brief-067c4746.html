@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>斗牛游戏 · 专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f2f4f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e2b3a;
+            padding: 24px 16px 48px;
+        }
+        .page-wrap {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(145deg, #eaeef4 0%, #d7dee8 100%);
+            border-radius: 28px;
+            padding: 52px 36px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.2s ease;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #182b3f;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #385269;
+            font-weight: 400;
+            max-width: 600px;
+            border-left: 3px solid #577a9e;
+            padding-left: 20px;
+        }
+
+        /* 卡片通用设计 */
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+            border: 1px solid #e3e9f0;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+        .card h2 {
+            font-size: 1.7rem;
+            font-weight: 470;
+            letter-spacing: -0.01em;
+            color: #1d3448;
+            border-bottom: 1px solid #e2e9f2;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+        }
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #2a4057;
+            margin-bottom: 8px;
+            margin-top: 18px;
+        }
+        .card p {
+            margin-bottom: 14px;
+            color: #2b3e52;
+            font-weight: 380;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 10px;
+        }
+        .feature-item {
+            flex: 1 1 180px;
+            background: #f7faff;
+            padding: 16px 18px;
+            border-radius: 16px;
+            border: 1px solid #dee7f0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01);
+        }
+        .feature-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1b354b;
+            margin-bottom: 4px;
+        }
+        .feature-item span {
+            font-size: 0.95rem;
+            color: #405b72;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #f4f8fe;
+            padding: 20px 24px;
+            border-radius: 18px;
+            border-left: 4px solid #6f8fa8;
+            margin: 14px 0 8px;
+        }
+        .faq-mini dt {
+            font-weight: 500;
+            color: #1c3347;
+            margin-bottom: 4px;
+        }
+        .faq-mini dd {
+            margin-left: 0;
+            color: #2f4861;
+            font-size: 0.98rem;
+            margin-bottom: 10px;
+        }
+
+        /* 页尾 访问提示 */
+        .footer-note {
+            background: #dfe6ef;
+            border-radius: 26px;
+            padding: 30px 32px;
+            margin-top: 28px;
+            text-align: center;
+            border: 1px solid #cdd7e3;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.6), 0 6px 10px rgba(0, 0, 0, 0.02);
+        }
+        .footer-note p {
+            font-size: 1.1rem;
+            color: #1f3449;
+        }
+        .footer-note a {
+            color: #1a3f5c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #5a7b96;
+            transition: border 0.15s;
+        }
+        .footer-note a:hover {
+            border-bottom: 2px solid #1a3f5c;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #d3dee9;
+            margin: 26px 0 16px;
+            opacity: 0.5;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+            .hero {
+                padding: 32px 20px 28px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 22px 18px;
+            }
+            .card h2 {
+                font-size: 1.4rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .feature-item {
+                flex: 1 1 auto;
+            }
+            .footer-note {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero 横幅 -->
+    <header class="hero">
+        <h1>斗牛游戏 · 规则与场景导读</h1>
+        <div class="sub">从传统纸牌演变而来的策略类竞技，兼具数学概率与临场判断，一直是棋牌爱好者长期探索的领域。</div>
+    </header>
+
+    <!-- 第一段：背景说明 -->
+    <section class="card">
+        <h2>一种纸牌竞技的稳定入口</h2>
+        <p>斗牛游戏（或称“牛牛”）起源于中国南方民间，以五张牌的组合比较为核心，通过点数组合决定胜负。它的节奏明快，每局耗时较短，因此适合作为日常休闲或朋友间切磋的选项。不同于一些复杂的大型棋牌，<a href="https://bullfightinggames.com">斗牛游戏</a>的门槛较低，新手只需了解基本牌型即可参与，但长期钻研又会在概率计算与心理博弈上形成深度空间。</p>
+        <p>在互联网环境中，<strong>稳定、可靠的规则解释</strong> 成为玩家首先关注的部分。由于各地存在细微变体（如五花牛、炸弹牛等），一个清晰且权威的规则基准有助于避免混淆。这也是本站尝试梳理的内容方向：以通用规则为基础，兼顾常见变体，让每位浏览者都能获得一致的知识起点。</p>
+    </section>
+
+    <!-- 第二段：自然介绍 + 特点卡片 -->
+    <section class="card">
+        <h2>游戏特点与玩家场景</h2>
+        <p>斗牛游戏的核心魅力在于“快速决策”与“有限信息下的推理”。每一局都会重新洗牌，不存在长期记忆优势，更考验对当前手牌与公共信息的解读。以下是一些常见应用场景与特征：</p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>休闲对局</strong>
+                <span>三五好友线上或线下组局，一局用时约30秒，适合碎片化时间。</span>
+            </div>
+            <div class="feature-item">
+                <strong>规则透明</strong>
+                <span>牌型大小、倍数计算均有明确标准，减少争议，便于新玩家融入。</span>
+            </div>
+            <div class="feature-item">
+                <strong>变体丰富</strong>
+                <span>“无牛”“有牛”“牛牛”“五花牛”等层次分明，策略阶梯自然形成。</span>
+            </div>
+            <div class="feature-item">
+                <strong>数学趣味</strong>
+                <span>组合概率、庄闲期望等概念可延伸为数学游戏，吸引逻辑型玩家。</span>
+            </div>
+        </div>
+        <p style="margin-top: 18px;">在实际对局中，玩家往往需要在短短数秒内判断是否继续加注或弃牌，这种压力与趣味并存的状态，使得斗牛游戏在众多纸牌玩法中保有自己的受众。对于希望系统了解概率与策略的玩家，一个结构化的入门指南会大幅提升体验。</p>
+    </section>
+
+    <!-- 第三段：FAQ摘要与过渡 -->
+    <section class="card">
+        <h2>常见疑问摘要</h2>
+        <dl class="faq-mini">
+            <dt>斗牛游戏是否全靠运气？</dt>
+            <dd>短期运气成分明显，但长期统计表明，对牌型概率的理解与下注管理可以显著影响胜率，策略空间真实存在。</dd>
+            <dt>如何判断自己是否适合这种玩法？</dt>
+            <dd>如果你喜欢快节奏、低复杂度的纸牌竞技，且对组合数字敏感，斗牛游戏是一个值得尝试的选择。</dd>
+            <dt>规则变体差异大吗？</dt>
+            <dd>核心逻辑一致（五张牌凑10的倍数），但部分变体加入特殊牌型或倍数调整，了解基础后即可触类旁通。</dd>
+        </dl>
+        <hr>
+        <p>上述内容基于多年社群讨论与规则整理，尽可能保持中立与全面。对于更细致的玩法说明、术语解释以及常见策略，推荐直接查阅专门的规则板块——那里会持续更新不同地区的约定俗成，以及常见误区辨析。</p>
+    </section>
+
+    <!-- 页尾 访问提示 -->
+    <footer class="footer-note">
+        <p>如果你想深入了解规则、牌型表与常见变体，可直接浏览关于 <a href="https://bullfightinggames.com">斗牛游戏</a> 的专题页面。页面内提供结构化的知识分区，并持续吸收玩家反馈进行修订。</p>
+        <p style="margin-top: 8px; font-size: 0.92rem; color: #3b5770;">—— 基于稳定入口与信息透明原则整理的专题介绍 · 2025</p>
+    </footer>
+</div>
+</body>
+</html>
